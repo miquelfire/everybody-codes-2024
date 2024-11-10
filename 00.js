@@ -14,3 +14,12 @@ export const part2 = async d => {
 	data.splice(0, data.length);
 	return data;
 };
+
+/**
+ * @param {string} d 
+ */
+export const part3 = async d => {
+	const data = d.split('\n');
+	data.splice(0, data.length);
+	return data;
+};

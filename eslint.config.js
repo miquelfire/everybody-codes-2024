@@ -1,32 +1,32 @@
-// @ts-check
+import globals from 'globals';
+import pluginJs from '@eslint/js';
 
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
-	eslint.configs.recommended,
-	...tseslint.configs.recommended,
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+	pluginJs.configs.recommended,
 	{
-		rules: {
+		languageOptions: { globals: globals.node },
+		'rules': {
 			'indent': [
 				'error',
 				'tab',
 				{
-					'SwitchCase': 1,
-				},
+					'SwitchCase': 1
+				}
 			],
 			'linebreak-style': [
 				'error',
-				'unix',
+				'unix'
 			],
 			'quotes': [
 				'error',
-				'single',
+				'single'
 			],
 			'semi': [
 				'error',
-				'always',
-			],
-		},
+				'always'
+			]
+		}
 	},
-);
+];

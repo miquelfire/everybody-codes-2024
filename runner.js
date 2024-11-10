@@ -64,7 +64,7 @@ const runPart = async (part, mod, data) => {
 };
 
 const getData = async day => {
-	const fname = formatFilename(day) + '.txt';
+	const fname = day + '.txt';
 
 	let data;
 	try {
@@ -83,11 +83,13 @@ export const run = async (day, year = 2024) => {
 	console.log(`AOC ${year} Day ${day}`);
 
 	const mod = await import('./' + formatFilename(day) + '.js');
-	const data = await getData(day);
+	const data1 = await getData(formatFilename(day) + '-a');
+	const data2 = await getData(formatFilename(day) + '-b');
+	const data3 = await getData(formatFilename(day) + '-c');
 
-	const part1Time = await runPart(1, mod, data);
-	const part2Time = await runPart(2, mod, data);
-	const part3Time = await runPart(3, mod, data);
+	const part1Time = await runPart(1, mod, data1);
+	const part2Time = await runPart(2, mod, data2);
+	const part3Time = await runPart(3, mod, data3);
 	if (part1Time != 0 && part2Time != 0 && part3Time != 0) {
 		console.log(`Total time: ${formatRuntime(part1Time + part2Time + part3Time)}`);
 	}

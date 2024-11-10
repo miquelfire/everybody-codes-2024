@@ -2,7 +2,6 @@
  * @param {string} d 
  */
 export const part1 = async d => {
-	return ''; // Too lazy to make multipart inputs
 	const potionsNeeded = {A: 0, B: 1, C: 3};
 	const data = d.split('').reduce((c, n) => c += potionsNeeded[n], 0);
 	return data;
@@ -12,7 +11,6 @@ export const part1 = async d => {
  * @param {string} d 
  */
 export const part2 = async d => {
-	return ''; // Too lazy to make multipart inputs
 	const potionsNeeded = {x: -2, A: 0, B: 1, C: 3, D: 5};
 	const data = d.match(/.{2}/g).reduce((c, n) => {
 		if (n == 'xx') {
